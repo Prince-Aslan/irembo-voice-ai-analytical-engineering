@@ -19,16 +19,7 @@ irembo-voice-ai-analytical-engineering Project
 3. Download your GCP service account key as gcp-creds.json in the root
 
 4. Create ~/.dbt/profiles.yml:
-`irembo_voice_ai:`
-  `target: dev`
-  `outputs:`
-    `dev:`
-      `type: bigquery`
-      `method: service-account`
-      `project: YOUR_PROJECT_ID`
-      `dataset: irembo_voice_ai`
-      `keyfile: /full/path/to/gcp-creds.json`
-      `location: US`
+![profile.yml code snapshot](image.png)
 
 
 5. Ingest data:
@@ -37,7 +28,9 @@ irembo-voice-ai-analytical-engineering Project
 
 6. Run dbt:
 `cd irembo_voice_ai_dbt`
+
 `dbt run`
+
 `dbt test`
 
 
