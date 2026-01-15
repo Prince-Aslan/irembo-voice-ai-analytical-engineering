@@ -1,7 +1,6 @@
 # irembo-voice-ai-analytical-engineering
 irembo-voice-ai-analytical-engineering Project 
 
-# Irembo Voice AI Analytical Engineering Assignment
 
 ## Prerequisites
 - Google Cloud Project with BigQuery enabled
