@@ -3,6 +3,27 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Secrets & credentials
+gcp-creds.json
+profiles.yml
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# dbt
+target/
+dbt_packages/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & temp files
+*.log
+
 # C extensions
 *.so
 

@@ -1,0 +1,11 @@
+version: 2
+sources:
+  - name: bronze
+    database: irembo-voice-ai  # My GCP project ID
+    schema: irembo_voice_ai
+    tables:
+      - name: bronze_voice_sessions
+      - name: bronze_voice_turns
+      - name: bronze_voice_ai_metrics
+      - name: bronze_applications
+      - name: bronze_users

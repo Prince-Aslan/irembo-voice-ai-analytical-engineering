@@ -1,0 +1,60 @@
+version: 2
+models:
+  - name: fact_voice_ai_sessions
+    description: "Gold-layer fact table for Irembo Voice AI impact evaluation. Combines voice sessions, user attributes, AI metrics, and application outcomes."
+    columns:
+      - name: session_id
+        description: "Anonymized session ID (e.g., S2000)"
+        tests: [unique, not_null]
+      - name: user_id
+        description: "Anonymized user ID (e.g., U1000)"
+        tests: [not_null]
+      - name: region
+        description: "User location: 'urban' or 'rural'"
+        tests:
+          - accepted_values:
+              values: ['urban', 'rural']
+      - name: disability_flag
+        description: "Indicates if user has declared disability"
+        tests:
+          - accepted_values:
+              values: ['yes', 'no']
+      - name: first_time_digital_user
+        description: "Indicates if user is new to digital services"
+        tests:
+          - accepted_values:
+              values: ['yes', 'no']
+      - name: session_channel
+        description: "Channel of the voice session (always 'voice')"
+        tests:
+          - accepted_values:
+              values: ['voice']
+      - name: language
+        description: "Session language (e.g., KINYARWANDA)"
+      - name: session_outcome
+        description: "Final outcome of voice session"
+        tests:
+          - accepted_values:
+              values: ['completed', 'abandoned', 'transferred']
+      - name: application_channel
+        description: "Channel used to submit application (may differ from session)"
+        tests:
+          - accepted_values:
+              values: ['voice', 'web', 'ussd']
+      - name: application_status
+        description: "Status of service application"
+        tests:
+          - accepted_values:
+              values: ['completed', 'abandoned', 'failed']
+      - name: avg_asr_confidence
+        description: "Average ASR confidence per session (0–1)"
+      - name: misunderstanding_rate
+        description: "Proportion of turns with intent errors"
+      - name: is_rural_user
+        description: "Boolean flag for rural users"
+      - name: is_session_completed
+        description: "True if voice session ended in 'completed'"
+      - name: is_application_completed
+        description: "True if linked application was 'completed'"
+      - name: is_voice_application
+        description: "True if application was submitted via voice"

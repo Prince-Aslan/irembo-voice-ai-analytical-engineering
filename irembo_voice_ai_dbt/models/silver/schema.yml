@@ -1,0 +1,73 @@
+version: 2
+models:
+  - name: stg_voice_sessions
+    columns:
+      - name: session_id
+        tests: [unique, not_null]
+      - name: user_id
+        tests: [not_null]
+      - name: channel
+        tests:
+          - accepted_values:
+              values: ['voice']
+      - name: final_outcome
+        tests:
+          - accepted_values:
+              values: ['completed', 'abandoned', 'transferred']
+
+  - name: stg_voice_turns
+    columns:
+      - name: turn_id
+        tests: [unique, not_null]
+      - name: session_id
+        tests: [not_null]
+      - name: error_type
+
+  - name: stg_voice_ai_metrics
+    columns:
+      - name: session_id
+        tests: [unique, not_null]
+      - name: recovery_success
+        tests:
+          - accepted_values:
+              values: ['yes', 'no']
+      - name: escalation_flag
+        tests:
+          - accepted_values:
+              values: ['yes', 'no']
+
+
+  - name: stg_applications
+    columns:
+      - name: application_id
+        tests: [unique, not_null]
+      - name: session_id
+        tests: [not_null]
+      - name: user_id
+        tests: [not_null]
+      - name: channel
+        tests:
+          - accepted_values:
+              values: ['voice', 'web', 'ussd']
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['completed', 'abandoned', 'failed']
+              
+
+  - name: stg_users
+    columns:
+      - name: user_id
+        tests: [unique, not_null]
+      - name: region
+        tests:
+          - accepted_values:
+              values: ['urban', 'rural']
+      - name: disability_flag
+        tests:
+          - accepted_values:
+              values: ['no', 'yes']
+      - name: first_time_digital_user
+        tests:
+          - accepted_values:
+              values: ['no', 'yes']
