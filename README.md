@@ -27,6 +27,7 @@ irembo-voice-ai-analytical-engineering Project
 
 
 6. Run dbt:
+
 `cd irembo_voice_ai_dbt`
 
 `dbt run`
